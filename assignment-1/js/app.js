@@ -11,17 +11,18 @@ function LunchCheckController($scope) {
   $scope.style = "";
 
   $scope.checkIfTooMuch = function () {
-    if ($scope.dishes.length > 0) {
-    $scope.message = areTooMuch($scope.dishes) ? "Too much!" : "Enjoy!";
-    $scope.style = "greenStyle";
-  } else {
-    $scope.message = "Please enter data first";
-    $scope.style =  "errorStyle";
-  }
+    var totalItems = getTotalItems($scope.dishes);
+    if (totalItems > 0) {
+      $scope.message = isTooMuchItems(totalItems) ? "Too much!" : "Enjoy!";
+      $scope.style = "greenStyle";
+    } else {
+      $scope.message = "Please enter data first";
+      $scope.style =  "errorStyle";
+    }
 
   };
 
-  function areTooMuch(string) {
+  function getTotalItems(string) {
     var count = 0;
     var items = string.split(',');
     for (var i = 0; i < items.length; i++) {
@@ -29,8 +30,13 @@ function LunchCheckController($scope) {
         count++;
       }
     }
-    return count > 3;
+    return count;
   }
+
+  function isTooMuchItems(items) {
+      return items > 3;
+    }
+
 }
 
 })();
