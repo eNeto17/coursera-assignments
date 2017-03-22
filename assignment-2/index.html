@@ -51,6 +51,9 @@
      <ul>
        <li ng-repeat="item in alreadyBoughtCtrl.items">
          Bought {{ item.quantity }} {{ item.name }}
+         <button class="btn btn-default" ng-click="alreadyBoughtCtrl.removeItem(item, $index);">
+           <span class="glyphicon glyphicon-remove"></span> Remove
+         </button>
        </li>
      </ul>
      <div ng-if="alreadyBoughtCtrl.items.length == 0" class="emptyMessage">Nothing bought yet.</div>
