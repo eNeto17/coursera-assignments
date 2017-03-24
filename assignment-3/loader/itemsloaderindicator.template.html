@@ -1,0 +1,20 @@
+<div ng-if="found.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Short Name</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in found">
+        <td>{{ item.short_name }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td><button ng-click="onRemove({itemIndex: $index});">Narrow It Down For Me!</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
