@@ -36,6 +36,8 @@ function NarrowItDownController(MenuSearchService) {
       nidCtrl.found = response;
       nidCtrl.showMessage = nidCtrl.found.length == 0;
     }).catch(function (error) {
+      nidCtrl.showMessage = true;
+      nidCtrl.found = "";
       console.log("ERROR! ", error);
     })
   };
@@ -65,7 +67,7 @@ function MenuSearchService($http, ApiBasePath) {
   };
 
   function isSearchTermFound(searchTerm, description) {
-    return description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+    return description && description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
   }
 }
 
