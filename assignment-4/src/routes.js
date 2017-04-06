@@ -29,7 +29,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       controller: 'CategoryController as catCtrl', // We use catCtrl on template.html
       resolve: {
         categoryItems: ['MenuDataService', function (MenuDataService) { // categoryItems are injected on CategoryController
-          return MenuDataService.getAllCategories();
+          return MenuDataService.getAllCategories().then(function(response) {
+            return response.data;
+          });
         }]
       }
     })
@@ -42,8 +44,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       resolve: {
         menuItems: ['MenuDataService', '$stateParams', // menuItems are injected on CategoryController
           function (MenuDataService, $stateParams) { // $stateParams is injected to use url path variable itemId
-            return MenuDataService.getItemsForCategory($stateParams.itemId);
-        }]
+            return MenuDataService.getItemsForCategory($stateParams.itemId).then(function(response) {
+              return response.data.menu_items;
+            });
+          }]
       }
     });
 

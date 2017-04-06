@@ -8,7 +8,7 @@ angular.module('MenuApp')
 CategoryItemController.$inject = ['menuItems']; // menuItems is a resolve property injected on state definition
 function CategoryItemController(menuItems) {      // menuItems are retrieved from MenuDataService invoked on state definition
   var itemDetailList = this;
-  itemDetailList.items = menuItems.data.menu_items;
+  itemDetailList.items = menuItems;
 }
 
 })();
