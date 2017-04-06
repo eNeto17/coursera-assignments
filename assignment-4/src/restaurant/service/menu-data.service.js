@@ -6,7 +6,7 @@ angular.module('MenuData')
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
 // Service to retrieve data from web services rest calls, it's injected on satate definition
-MenuDataService.$inject = ['$http', 'ApiBasePath']
+MenuDataService.$inject = ['$http', 'ApiBasePath'];
 function MenuDataService($http, ApiBasePath) {
   var service = this;
 
