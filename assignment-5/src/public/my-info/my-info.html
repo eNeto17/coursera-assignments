@@ -1,0 +1,63 @@
+<h1>My Information</h1>
+<br>
+<div class="row" ng-show="myInfoCtrl.user.firstname">
+  <div class="col-xs-offset-1 col-xs-5">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th class="col-xs-3">Personal Data</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-xs-3">First Name</td>
+          <td>{{myInfoCtrl.user.firstname}}</td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">Last Name</td>
+          <td>{{myInfoCtrl.user.lastname}}</td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">Email</td>
+          <td>{{myInfoCtrl.user.email}}</td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">Phone Number</td>
+          <td>{{myInfoCtrl.user.phone}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-xs-3">Dish</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-xs-3">Title</td>
+          <td>{{myInfoCtrl.dish.name}}</td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">Description</td>
+          <td>{{myInfoCtrl.dish.description}}</td>
+        </tr>
+        <tr>
+          <td class="col-xs-3">Image</td>
+          <td><img class="img-responsive" width="250"
+            height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.dish.short_name}}.jpg"
+            alt="{{myInfoCtrl.dish.name}}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row" ng-hide="myInfoCtrl.user.firstname">
+  <div class="col-xs-offset-1 col-xs-11">
+    <h3>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!<a></h3>
+  </div>
+</div>
