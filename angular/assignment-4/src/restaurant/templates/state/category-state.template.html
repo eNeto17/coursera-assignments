@@ -1,0 +1,15 @@
+<!-- Breadcrum declaration -->
+<p class="text-center"><a ui-sref="home">Home</a> &lt; <span>List</span></p>
+<br/><br/>
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Category List</h3>
+    <!-- catCtrl is the alias defined on state for controller -->
+    <category-component items="catCtrl.items"></category-component>
+  </div>
+
+  <div class="col-xs-6">
+    <!-- Html section to inject child state template -->
+    <ui-view></ui-view>
+  </div>
+</div>
